@@ -18,8 +18,8 @@ end
 
 def most_popular_guest_profession_each_year
 	sql = <<-SQL
-		SELECT a.year, a.group_profession, COUNT(a.group_profession)
-		FROM (SELECT year, group_profession, COUNT(id)
+		SELECT a.year, a.profession, COUNT(a.profession)
+		FROM (SELECT year, profession, COUNT(id)
 			FROM guests
 		GROUP BY year, profession
 		ORDER BY count(profession) DESC
