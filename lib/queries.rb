@@ -1,9 +1,7 @@
-
-
 require_relative "../config/environment.rb"
 
 def guest_with_most_appearances
-  sql=<<-SQL
+  sql = <<-SQL
     SELECT name 
     FROM guests
     GROUP BY name
