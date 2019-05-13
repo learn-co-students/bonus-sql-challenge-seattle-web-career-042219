@@ -89,15 +89,15 @@ end
 # Active record refactors
 
 def guest_with_most_appearances
-  sql = <<-SQL
-    SELECT name 
-    FROM guests
-    GROUP BY name
-    ORDER BY COUNT(name) DESC
-    LIMIT 1
-  SQL
-  DB.execute(sql).first
-  # Guest.select(:name).order(Guest[:name].count).reverse_order.group(:name).limit(1)
+  # sql = <<-SQL
+  #   SELECT name 
+  #   FROM guests
+  #   GROUP BY name
+  #   ORDER BY COUNT(name) DESC
+  #   LIMIT 1
+  # SQL
+  # DB.execute(sql).first
+  Guest.select(:name).order(Guest[:name].count).reverse_order.group(:name).limit(1)
 end
 
 def most_popular_profession_by_year
